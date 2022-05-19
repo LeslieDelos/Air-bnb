@@ -39,7 +39,6 @@ export default function SignInScreen({ setToken, setId }) {
         if (response.data.token && response.data.id) {
           setToken(response.data.token);
           setId(response.data.id);
-          navigation.navigate("Home");
         } else {
           setError("Identifiants incorrects");
         }
@@ -84,9 +83,7 @@ export default function SignInScreen({ setToken, setId }) {
 
           <TouchableOpacity
             style={{ backgroundColor: "white", alignItems: "center" }}
-            onPress={() => {
-              navigation.navigate("Home");
-            }}
+            onPress={handleLogin}
           >
             <Text
               style={{

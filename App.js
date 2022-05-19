@@ -4,12 +4,16 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
+
+//pages
 import HomeScreen from "./containers/HomeScreen";
 import ProfileScreen from "./containers/ProfileScreen";
 import SignInScreen from "./containers/SignInScreen";
 import SignUpScreen from "./containers/SignUpScreen";
 import SettingsScreen from "./containers/SettingsScreen";
 import SplashScreen from "./containers/SplashScreen";
+import RoomScreen from "./containers/RoomScreen";
+import AroundMeScreen from "./containers/AroundMeScreen";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -61,9 +65,6 @@ export default function App() {
             <Stack.Screen name="SignUp">
               {() => <SignUpScreen setToken={setToken} />}
             </Stack.Screen>
-            <Stack.Screen name="Home">
-              {() => <SignInScreen setToken={setToken} />}
-            </Stack.Screen>
           </>
         ) : (
           // User is signed in ! 🎉
@@ -91,12 +92,13 @@ export default function App() {
                         name="Home"
                         options={{
                           title: "My App",
-                          headerStyle: { backgroundColor: "red" },
-                          headerTitleStyle: { color: "white" },
+                          // headerStyle: { backgroundColor: "red" },
+                          // headerTitleStyle: { color: "white" },
                         }}
                       >
                         {() => <HomeScreen />}
                       </Stack.Screen>
+                      <Stack.Screen name="Room" component={RoomScreen} />
 
                       <Stack.Screen
                         name="Profile"
